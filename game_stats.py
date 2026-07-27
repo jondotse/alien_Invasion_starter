@@ -18,7 +18,7 @@ class GameStats():
 
     def init_saved_scores(self):
         self.path = self.settings.scores_file 
-        if self.path.exists() and self.path.stat.__sizeof__()> 80:
+        if self.path.exists() and self.path.stat.__sizeof__()> 20:
             contents = self.path.read_text()
             if not contents:
                 print('file empty')
@@ -59,7 +59,7 @@ class GameStats():
             self.max_score = self.score
             # print(f'Max: {self.max_score}')
     def _update_hi_score(self):
-        if self.score > self.hi:
+        if self.score > self.hi_score:
             self.hi_score = self.score
             # print(f'Hi: {self.max_score}')
 
